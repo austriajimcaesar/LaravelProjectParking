@@ -1,0 +1,15 @@
+/* .background {
+    background-image: url("../assets/wall.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+.sizeCard {
+    width: 400px;
+    margin-left: 569px;
+    margin-top: 20px;
+}
+
+h4 {
+    margin-left: 140px;
+}
