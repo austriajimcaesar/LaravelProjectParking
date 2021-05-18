@@ -1,10 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+<head>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/login.css" />
+    </head>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+        <div class="card sizeCard blue lighten-5 ">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -74,4 +81,8 @@
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="../js/materialize.min.js"></script>
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/loginscript.js"></script>
 @endsection
