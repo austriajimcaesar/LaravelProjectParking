@@ -1,12 +1,17 @@
-
  /* .background {
     background-image: url("../assets/wall.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 } */
 
+/* .card-image{
+    width: 400px;
+    height: 300px;
+    margin-left: 20px;
+} */
 .sizeCard {
     width: 1400px;
+    height: 800px;
     margin-left: 100px;
     margin-top: 20px;
     border-radius: 30px;
@@ -17,13 +22,14 @@ h4 {
     margin-left: 140px;
 }
 
+
 .btn {
 border-radius: 30px;
 width: 200px;
-margin-left: 350px;
+margin-left: 100px;
+
 
 }
-
 
 .center {
     display: block;

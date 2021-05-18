@@ -5,12 +5,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="../css/admin.css" />
-    <title>Admin</title>
+    <link type="text/css" rel="stylesheet" href="../css/vehicle.css" />
+    <title>Vehicles</title>
 </head>
 
 <body>
-
     <!-- <nav>
         <div class="nav-wrapper" style="background-color:  #5a5ccf; ">
             <ul class="col s10 m8 l3 right">
@@ -31,23 +30,19 @@
                 <li>
                     <div class="divider"></div>
                 </li>
-               <li><form method="/" action="{{ route('vehicle') }}">        
+                <form method="/" action="{{ route('admin') }}">        
                     @csrf       
-                    <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
-                <form></li>
+                    <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('ADMIN') }}</button>
+                <form>
                 <!-- <form method="/" action="{{ route('vehicle') }}">        
                     @csrf       
                     <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
                 <form>
-                <li><form method="/" action="{{ route('vehicle') }}">        
+                <form method="/" action="{{ route('vehicle') }}">        
                     @csrf       
                     <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('TRANSACTION') }}</button>
-                <form></li><br><br><br><br><br><br><br><br><br>
-                <li> <form method="/" action="{{ route('vehicle') }}">        
-                    @csrf       
-                    <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('LOGOUT') }}</button>
-                <form></li> -->
-                <!-- <li><a class="waves-effect " method="/"  style="color: white; ">Admin</a></li>
+                <form> -->
+                <!-- <li><a class="waves-effect " style="color: white; " href="http://localhost/parking1/www/Admin.html ">Admin</a></li>
                 <li> <a class="waves-effect " style="color: white; " href="http://localhost/parking1/www/index.html ">Vehicles parked</a></li>
                 <li><a class="waves-effect " style="color: white; center " href=" http://localhost/parking1/www/transaction.html ">Transaction</a></li><br><br><br>
                 <br><br><br><br><br><br><br><br><br><br>
@@ -58,44 +53,44 @@
             <div class="container">
             </div>
         </div>
+        <div class="container" >
+        <div class="col s10">
+            <div class="row">
 
-            <div class="container" >
-
-<body class="background"></body>
+            </div>
+            <!-- Display all records in a table -->
+            <body class="background"></body>
     <div class="row justify-content-center">
         <div class="col-md-8 ">
             <div class="card sizeCard blue lighten-5 ">
-                <h3 class="card-header, center">{{ __('Parking Management System') }}</h3>
-                <div class="card-image">
-                <img class="center" src="{{url('/assets/picsur1.jpg')}}" /><br>
-                <div class="card-body">
-                    <form method="/" action="{{ route('vehicle') }}">
-                    
-                        @csrf
-                        <div class="form-group row mb-0" id="parked" class="card-action">
-                            <div class="col-md-8 offset-md-4">
-                           
-                                <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" data-target="modal1">
-                                    {{ __('Add Vehicle') }}
-                                </button>
-                                <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">
-                                    {{ __('view cars') }}
-                                </button><br><br>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+                <h3 class="card-header, center">{{ __('Vehicle Records') }}</h3>
+                <img class="center" src="{{url('/assets/parkingback.png')}}" /><br>
+                <table style="margin-top: 50px;" class="responsive-table" class="highlight">
+                <thead>
+
+                    <th>Customer Id</th>
+                    <th>Vehicle Plate</th>
+                    <th>Vehicle Maker</th>
+                    <th>Vehicle Model</th>
+                    <th>Action</th>
+
+                </thead>
+                <tbody id="records"></tbody>
+            </table>
+            
         </div>
     </div>
 </div>
             <div class="container">
 
-                <div id="modal1" class="modal blue lighten-5">
-                    <div class="modal-content blue lighten-5">
-                        <div class="col s12 m8 9">
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <div class="col s12 m8 l9">
                             <label for="custId">Customer #</label>
                             <input id="custId" type="text" disabled placeholder="Customer #" /><br>
+
+                            <br>
+
 
                             <label for="vModel">Vehicle Model</label>
                             <input id="vModel" type="text" placeholder="Vehicle Model" /><br>
@@ -107,9 +102,7 @@
                             <input id="vPlatenum" type="text" placeholder="Vehicle Plate number" /><br>
 
 
-                            <a class="waves-light btn " onclick="add_record()"><i class="material-icons Right"></i>add customer</a>
-                            <br>
-                            <br>
+                            <a class="waves-light btn " onclick="edit_record()"> <i class="material-icons Right">edit</i>edit</a>
                         </div>
                     </div>
                 </div>
@@ -118,8 +111,8 @@
                 <br>
             </div>
         </div>
-    
-
+    </div>
+</div>
 
 
 
@@ -129,7 +122,6 @@
             var instances = M.Modal.init(elems);
         });
     </script>
-
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
