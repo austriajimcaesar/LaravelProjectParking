@@ -31,21 +31,52 @@
                 <li>
                     <div class="divider"></div>
                 </li>
-               <li><form method="/" action="{{ route('vehicle') }}">        
+                <br><br>
+                <form method="/" action="{{ route('vehicle') }}">
+                        @csrf
+                        <div class="form-group row mb-0" id="vehicle" class="card-action">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="vehicle">
+                                    {{ __('VEHICLE') }}
+                                </button><br><br>
+                            </div>
+                        </div>
+                    </form>
+                    <form method="/" action="{{ route('transaction') }}">
+                        @csrf
+                        <div class="form-group row mb-0" id="trans" class="card-action">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="trans">
+                                    {{ __('TRANSACTION') }}
+                                </button><br><br><br><br><br><br><br>
+                            </div>
+                        </div>
+                    </form><br><br><br>
+                    <form method="/" action="{{ route('login') }}">
+                        @csrf
+                        <div class="form-group row mb-0" id="out" class="card-action">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn1 red lighten-1 modal-trigger" class="btn" id="out">
+                                    {{ __('LOGOUT') }}
+                                </button><br><br>
+                            </div>
+                        </div>
+                    </form>
+               <!-- <li><form method="/" action="{{ route('vehicle') }}">        
                     @csrf       
-                    <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
-                <form></li>
+                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
+                <form></li><br> -->
                 <!-- <form method="/" action="{{ route('vehicle') }}">        
                     @csrf       
-                    <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
-                <form>
+                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
+                <form><br><br>
                 <li><form method="/" action="{{ route('vehicle') }}">        
                     @csrf       
-                    <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('TRANSACTION') }}</button>
+                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('TRANSACTION') }}</button>
                 <form></li><br><br><br><br><br><br><br><br><br>
-                <li> <form method="/" action="{{ route('vehicle') }}">        
+                <li> <form method="/" action="{{ route('login') }}">        
                     @csrf       
-                    <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('LOGOUT') }}</button>
+                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('LOGOUT') }}</button>
                 <form></li> -->
                 <!-- <li><a class="waves-effect " method="/"  style="color: white; ">Admin</a></li>
                 <li> <a class="waves-effect " style="color: white; " href="http://localhost/parking1/www/index.html ">Vehicles parked</a></li>
@@ -69,7 +100,7 @@
                 <div class="card-image">
                 <img class="center" src="{{url('/assets/picsur1.jpg')}}" /><br>
                 <div class="card-body">
-                    <form method="/" action="{{ route('vehicle') }}">
+                    <form method="/" action="{{ route('transaction') }}">
                     
                         @csrf
                         <div class="form-group row mb-0" id="parked" class="card-action">
@@ -107,7 +138,7 @@
                             <input id="vPlatenum" type="text" placeholder="Vehicle Plate number" /><br>
 
 
-                            <a class="waves-light btn " onclick="add_record()"><i class="material-icons Right"></i>add customer</a>
+                            <a class="waves-light btn center "  onclick="add_record()"><i class="material-icons Right"></i>add customer</a>
                             <br>
                             <br>
                         </div>

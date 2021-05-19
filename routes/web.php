@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 Route::get('/vehicle', [App\Http\Controllers\VehicleController::class, 'index'])->name('vehicle');
-
+Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction');
 // Route::middleware(['auth'])->group(function () {
 
 //   Route::get('/', 'AdminController@getHome')->name('admin.home');

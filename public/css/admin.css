@@ -20,10 +20,24 @@ h4 {
 .btn {
 border-radius: 30px;
 width: 200px;
-margin-left: 350px;
+margin-left: 340px;
 
 }
+.btn1 {
+    border-radius: 50px;
+    height: 80px;
+    width: 200px;
+    margin-left: 80px;
+    font-size: medium;
+    color: white;
+    
+    }
+.btn2{
+    border-radius: 30px;
+    width: 200px;
+    margin-left: 350px;
 
+}
 
 .center {
     display: block;
@@ -36,5 +50,4 @@ margin-left: 350px;
     margin-left: 800px;
     margin-top: 20px;
     border-radius: 30px;
-
 }
