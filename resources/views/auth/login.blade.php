@@ -20,7 +20,6 @@
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-
                         <div class="form-group row">
                             
                             <label for="email"><i class="medium material-icons">__account_circle</i></label>

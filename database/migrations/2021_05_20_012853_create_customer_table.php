@@ -15,6 +15,15 @@ class CreateCustomerTable extends Migration
     {
         Schema::create('customer', function (Blueprint $table) {
             $table->id();
+            $table->string('custId')->unique();
+            $table->string('vId');
+            $table->string('custFname');
+            $table->string('custLname');
+            $table->string('custMnane');
+            $table->string('vType');
+            $table->string('vPlatenum');
+            $table->string('vMaker');
+            $table->string('vModel');
             $table->timestamps();
         });
     }

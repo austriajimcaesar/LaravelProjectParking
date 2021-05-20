@@ -139,6 +139,7 @@
 
 
                             <a class="waves-light btn center "  onclick="add_record()"><i class="material-icons Right"></i>add customer</a>
+                            
                             <br>
                             <br>
                         </div>
