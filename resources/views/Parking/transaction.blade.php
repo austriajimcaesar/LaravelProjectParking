@@ -90,14 +90,10 @@
 
                 </thead>
                 <tbody id="records1"></tbody>
-                </table>
-                            
-            
+                </table>                         
         </div>
     </div>
 </div>
-    
-               
             <div class="container">
 
                 <div id="modal2" class="modal">
