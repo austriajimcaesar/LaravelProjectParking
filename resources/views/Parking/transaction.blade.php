@@ -15,7 +15,7 @@
             <ul id="slide-out" class="sidenav sidenav-fixed" style="width: 350px;background-color:  #5a5ccf; ; ">
                 <li>
                     <div class="user-view">
-                        <a href="#user"><img class="circle" style="width: 100% ; height: 100%;" src="../assets/parkinglogo.png"></a>
+                    <a href="#user"><img class="square" style="width: 100% ; height: 100%;" src="../assets/parking.png"></a>
                     </div>
                 </li>
 

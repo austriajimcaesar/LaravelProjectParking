@@ -14,6 +14,7 @@ class AdminController extends Controller
     public function index()
     {
         //
+        
         return view('parking.admin');
     }
 
@@ -24,12 +25,12 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
-        // if (Auth::check()) {
-        //     return view('posts.create');
-        // } else {
-        //     return redirect('login');
-        // }
+        
+        if (Auth::check()) {
+            return view('parking.admin');
+        } else {
+            return redirect('login');
+        }
     }
     
 

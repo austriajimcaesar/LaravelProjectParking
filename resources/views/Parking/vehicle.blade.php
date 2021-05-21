@@ -10,19 +10,13 @@
 </head>
 
 <body>
-    <!-- <nav>
-        <div class="nav-wrapper" style="background-color:  #5a5ccf; ">
-            <ul class="col s10 m8 l3 right">
-                <li><a href="http://localhost/parking1/www/loginParking.html ">Logout</a></li>
-            </ul>
-        </div>
-    </nav> -->
     <div class="row">
         <div class="col s2 blue lighten-5">
-            <ul id="slide-out" class="sidenav sidenav-fixed" style="width: 350px;background-color:  #5a5ccf; ; ">
+            <ul id="slide-out" class="sidenav sidenav-fixed" style="width: 350px; background-color:  #5a5ccf; ; ">
                 <li>
                     <div class="user-view">
-                        <a href="#user"><img class="circle" style="width: 100% ; height: 100%;" src="../assets/parkinglogo.png"></a>
+                        <a href="#user">
+                        <img class="square" style="width: 100% ; height: 100%;" src="../assets/parking.png"></a>
 
                     </div>
                 </li>
@@ -57,7 +51,7 @@
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn1 red lighten-1 modal-trigger" class="btn" id="out">
                                     {{ __('LOGOUT') }}
-                                </button><br><br>
+                                </button><br>
                             </div>
                         </div>
                     </form>
