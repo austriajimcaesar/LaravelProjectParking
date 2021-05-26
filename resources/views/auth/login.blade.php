@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -12,43 +11,48 @@
 <div class="container" >
 
 <body class="background"></body>
-    <div class="row justify-content-center">
-        <div class="col-md-8 ">
-            <div class="card sizeCard blue lighten-5 ">
-                <h3 class="card-header, center">{{ __('Login') }}</h3>
-                <img class="center" src="{{url('/assets/parking.png')}}" /><br>
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="form-group row">
-                            
-                            <label for="email"><i class="medium material-icons">__account_circle</i></label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+<div class="app-logo-container center">
+            <div class="login-div">
+                <div class="card sizeCard " style="border-radius: 20px;">
+                    <div class="card-content ">
+                        <div class="login-div-content">
+                            <div class="logo-container">
+                                <img src="{{url('/assets/parking.png')}}" />
                             </div>
-                        </div>
+                            <p class="welcome-text" style="margin-top: 10px">Welcome, Admin.</p>
+                            <br>
+                            <form method="POST" action="{{ route('login') }}">
+                                @csrf
 
-                        <div class="form-group row">
-                        <label for="password">  <i  class="medium material-icons">__lock</i></label>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix formIcon">account_circle</i>
+                                        <label for="email">{{ __('E-Mail Address') }}</label>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror validate" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        
+                                        @error('email')
+                                            <span class="helper-text">{{ $message }}</span>
+                                            <!-- <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span> -->
+                                        @enderror
+                                    </div>
+                                </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <i class="material-icons prefix formIcon">lock</i>
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror validate" name="password" required autocomplete="current-password">
+                                        <label for="password">{{ __('Password') }}</label>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
+                                        @error('password')
+                                            <span class="helper-text">{{ $message }}</span>
+                                            <!-- <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span> -->
+                                        @enderror
+                                    </div>
+                                </div>
                         <!-- <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -72,8 +76,7 @@
                                     <a class="btn btn-link, center" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
-      -->
+                                @endif -->
                             </div>
                             
                         </div>
@@ -88,4 +91,4 @@
 <script src="../js/jquery-3.4.1.min.js"></script>
 <script src="../js/loginscript.js"></script>
 
-@endsection
+</html>

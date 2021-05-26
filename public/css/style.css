@@ -1,0 +1,351 @@
+.stats-container {
+	display: flex;
+	gap: 1em;
+	justify-content: space-between;
+}
+
+.container, .sidebar {
+	font-family: 'Poppins', sans-serif;
+}
+
+.stat-card {
+	display: flex;
+	gap: 1em;
+	flex-grow: 1;
+	justify-content: space-between;
+}
+
+.stat-img {
+	display: flex;
+	align-items: center;
+}
+
+.stat-icon {
+	width: 64px;
+	height: 64px;
+}
+
+.stat-text-container {
+	display: flex;
+	align-items: center;
+}
+
+.stat-text {
+	text-align: right;
+}
+
+.logo-container {
+	display: flex;
+	justify-content: center;
+}
+
+p {
+	margin: 0;
+}
+
+body {
+	background-color: #F5F5F5;
+	font-family: 'Poppins', sans-serif !important;
+}
+
+input, textarea {
+	font-family: 'Poppins', sans-serif !important;
+}
+
+
+.flex-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main-login-container {
+	display: flex;
+}
+
+.app-logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.login-div-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	width: 350px;
+	font-family: 'Poppins', sans-serif;
+}
+
+.input-field input[type=text]:focus + label {
+	color: forestgreen !important;
+}
+
+.input-field input[type=text]:focus, .input-field input[type=text].valid {
+	border-bottom: 1px solid forestgreen !important;
+	box-shadow: 0 1px 0 0 forestgreen !important;
+}
+
+.input-field input[type=number]:focus + label {
+	color: forestgreen !important;
+}
+
+.input-field input[type=number]:focus, .input-field input[type=text].valid {
+	border-bottom: 1px solid forestgreen !important;
+	box-shadow: 0 1px 0 0 forestgreen !important;
+}
+
+.input-field input[type=email]:focus + label {
+	color: forestgreen !important;
+}
+
+.input-field input[type=email]:focus, .input-field input[type=email].valid {
+	border-bottom: 1px solid forestgreen !important;
+	box-shadow: 0 1px 0 0 forestgreen !important;
+}
+
+.input-field input[type=password]:focus + label {
+	color: forestgreen !important;
+}
+
+.input-field input[type=password]:focus, .input-field input[type=password].valid {
+	border-bottom: 1px solid forestgreen !important;
+	box-shadow: 0 1px 0 0 forestgreen !important;
+}
+
+.input-field textarea:focus + label {
+	color: forestgreen !important;
+}
+
+.input-field textarea:focus, .input-field textarea.valid {
+	border-bottom: 1px solid forestgreen !important;
+	box-shadow: 0 1px 0 0 forestgreen !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+span {
+	color: dimgray !important;
+}
+
+label {
+	font-size: 16px !important;
+}
+
+.formIcon {
+	color: forestgreen !important;
+}
+
+.welcome-text {
+	font-size: 25px; 
+	font-weight: 600;  
+	color: forestgreen;
+}
+
+.modalImg {
+	display: flex;
+	align-items: center;
+	margin-top: 20px;
+	gap: 1em;
+}
+
+.addProductForm {
+	width: 70%;
+}
+
+
+.background {
+    background-image: url("../assets/wall.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sizeCard {
+    width: 1400px;
+    margin-left: 100px;
+    margin-top: 20px;
+    border-radius: 30px;
+
+}
+
+h4 {
+    margin-left: 140px;
+}
+
+.btn {
+border-radius: 30px;
+width: 200px;
+margin-left: 340px;
+
+}
+.btn1 {
+    border-radius: 50px;
+    height: 80px;
+    width: 200px;
+    margin-left: 80px;
+    font-size: medium;
+    color: white;
+    
+    }
+.btn2{
+    border-radius: 30px;
+    width: 200px;
+    margin-left: 350px;
+
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+.modal{
+    width: 500px;
+    margin-left: 800px;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+.img-size{
+	small
+}
+
+.addproductimg {
+	width: 55%;
+}
+
+.header {
+	font-size: 22px;
+	font-weight: 600;
+	color: dimgray;
+}
+
+.zontaline {
+	margin-top: 10px;
+	border-bottom: 1px solid dimgray;
+}
+
+.modalHeader {
+	display: flex;
+	justify-content: space-between;
+}
+
+.loginBtn {
+	font-family: 'Poppins', sans-serif !important;
+	height: 50px !important;
+	font-size: 18px !important;
+	width: 94%;
+}
+
+.modal {
+	max-height: 100% !important;
+}
+
+.action-btn {
+	display: flex;
+	align-items: center;
+	gap: .5em;
+}
+
+.remove-btn > button {
+	font-family: 'Poppins', sans-serif !important;
+}
+
+.outline-border {
+	border: 1px solid forestgreen;
+	border-radius: 10px;
+	padding: 15px;
+	flex-grow: 100;
+}
+
+.headertext {
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.right-align {
+	text-align: right;
+}
+
+
+.addBtnDiv {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+form {
+	margin: 0;
+}
+
+.btn {
+	height: 36px !important;
+	display: flex;
+}
+
+.file-field {
+	display: flex;
+	align-items: center;
+}
+
+.csvlabel {
+	line-height: 36px !important;
+}
+
+.addproduct-btn {
+	font-family: 'Poppins', sans-serif !important;
+	float: right;
+}
+
+.modal {
+	border-radius: 20px !important;
+}
+
+.order-details-maincontainer {
+	padding: 15px;
+	margin-top: -225px;
+}
+
+.abomasnow, .accelgor, .aegislash {
+	display: flex;
+	gap: 1em;
+}
+
+.abra {
+	margin-top: 15px;
+}
+
+.absol {
+	display: flex;
+	justify-content: space-between;
+}
+
+.accelgor, .aegislash {
+	margin-top: 15px;
+}
+
+.orderflex {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.vieworders {
+	width: 40%;
+}
+
+.orderdetails {
+	width: 100% !important;
+}
+
+

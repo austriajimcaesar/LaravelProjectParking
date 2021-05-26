@@ -20,47 +20,21 @@
 
                     </div>
                 </li>
-
                 <li>
                     <div class="divider"></div>
                 </li>
                 <br><br>
-                <form method="/" action="{{ route('admin') }}">
-                        @csrf
-                        <div class="form-group row mb-0" id="admin" class="card-action">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="admin">
-                                    {{ __('ADMIN') }}
-                                </button><br><br>
-                            </div>
-                        </div>
-                    </form>
-                    <form method="/" action="{{ route('transaction') }}">
-                        @csrf
-                        <div class="form-group row mb-0" id="trans" class="card-action">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="trans">
-                                    {{ __('TRANSACTION') }}
-                                </button><br><br><br><br><br><br><br>
-                            </div>
-                        </div>
-                    </form><br><br><br>
-                    <form method="/" action="{{ route('login') }}">
-                        @csrf
-                        <div class="form-group row mb-0" id="out" class="card-action">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn1 red lighten-1 modal-trigger" class="btn" id="out">
-                                    {{ __('LOGOUT') }}
-                                </button><br>
-                            </div>
-                        </div>
-                    </form>
-                <!-- <li><a class="waves-effect " style="color: white; " href="http://localhost/parking1/www/Admin.html ">Admin</a></li> -->
-                <!-- <li> <a class="waves-effect " style="color: white; " href="http://localhost/parking1/www/index.html ">Vehicles parked</a></li>
-                <li><a class="waves-effect " style="color: white; center " href=" http://localhost/parking1/www/transaction.html ">Transaction</a></li><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br>
-                <li><a class="waves-effect " style="color: white; " href=" http://localhost/parking1/www/transaction.html ">Logout</a></li> --> -->
-
+             
+                <a href="/admin"><button type="button" class="btn1 blue lighten-1 modal-trigger"><span class="fa fa-user icons1"></span>ADMIN</button></a><br><br>
+                <a href="/transaction"><button type="button" class="btn1 blue lighten-1 modal-trigger"><span class="fa fa-user icons1"></span>TRANSACTION</button></a><br><br><br><br><br><br><br><br><br><br><br>
+                <li><a button type="button" class="btn1 red lighten-1 modal-trigger white-text" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a><form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>                         
             </ul>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <div class="container">
@@ -71,63 +45,60 @@
             <div class="row">
 
             </div>
-            <!-- Display all records in a table -->
             <body class="background"></body>
-    <div class="row justify-content-center">
-        <div class="col-md-8 ">
-            <div class="card sizeCard blue lighten-5 ">
-                <h3 class="card-header, center">{{ __('Vehicle Records') }}</h3>
-                <img class="center" src="{{url('/assets/parkingback.png')}}" /><br>
+  <!-- Orders card table -->
+  <div class="card sizeCard" style="border-radius: 20px;">
+            <div class="card-content black-text">
+        
+            <!-- Display all records in a table -->
+            <p style="color: dimgray; font-size: 20px; font-weight: 500;">Vehicles List</p>
+            <!-- <img class="center" class="img-size" src="{{url('/assets/parkingback.png')}}" /><br> -->
                 <table style="margin-top: 50px;" class="striped" class="responsive-table" class="highlight">
-                <thead>
-
-                    <th>Customer Id</th>
-                    <th>Vehicle Plate</th>
-                    <th>Vehicle Maker</th>
-                    <th>Vehicle Model</th>
-                    <th>Action</th>
-
-                </thead>
-                <tbody id="records"></tbody>
-            </table>
-            
-        </div>
-    </div>
-</div>
-            <div class="container">
-
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <div class="col s12 m8 l9">
-                            <label for="custId">Customer #</label>
-                            <input id="custId" type="text" disabled placeholder="Customer #" /><br>
-
-                            <br>
-
-
-                            <label for="vModel">Vehicle Model</label>
-                            <input id="vModel" type="text" placeholder="Vehicle Model" /><br>
-
-                            <label for="vMaker">Vehicle Maker</label>
-                            <input id="vMaker" type="text" placeholder="Vehicle Maker" /><br>
-
-                            <label for="vPlatenum">Vehicle Plate number</label>
-                            <input id="vPlatenum" type="text" placeholder="Vehicle Plate number" /><br>
-
-
-                            <a class="waves-light btn " onclick="edit_record()"> <i class="material-icons Right">edit</i>edit</a>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-                <br>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+            <!-- Start of table -->
+                    <thead>
+                        <tr>
+                        <tr>
+                            <th>Vehicle ID</th>
+                            <th>Vehicle Model</th>
+                            <th>Vehicle Brand</th>
+                            <th>Plate Number</th>
+                            <th>Parking Price</th>
+                            <th>Action</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($vehicle as $vehicle)
+                            <tr>
+                                <td>{{ $vehicle->vId }}</td>
+                                <td>{{ $vehicle->vModel }}</td>
+                                <td>{{ $vehicle->vBrand }}</td>
+                                <td>{{ $vehicle->vPlatenum }}</td>
+                                <td>{{ $vehicle->vPrice }}</td>
+                                <td>
+                                    <div class="action-btn">
+                                        <form method="POST" action=" {{ route('vehicle.update', $vehicle->vId)}}">
+                                            @method('PUT')
+                                            @csrf
+                                            <div class="remove-btn">
+                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">Done</button>
+                                            </div>
+                                        </form>
+                                        <form method="POST" action=" {{ route('vehicle.destroy', $vehicle->vId)}}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <div class="remove-btn">
+                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">Remove</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>    
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+     </div></div>
+                <!-- End of table -->
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

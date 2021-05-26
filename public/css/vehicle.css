@@ -1,25 +1,24 @@
- /* .background {
+ .background {
     background-image: url("../assets/wall.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-} */
-
+} 
 /* .card-image{
     width: 400px;
-    height: 300px;
+    height: 150px;
     margin-left: 20px;
 } */
 .sizeCard {
     width: 1400px;
     height: 800px;
     margin-left: 100px;
-    margin-top: 20px;
+    margin-top: 40px;
     border-radius: 30px;
 
 }
 
 h4 {
-    margin-left: 140px;
+    margin-left: 40px;
 }
 
 
@@ -42,10 +41,10 @@ margin-left: 100px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 0px;
 }
 .modal{
-    width: 500px;
+    width: 200px;
     margin-left: 800px;
     margin-top: 20px;
     border-radius: 30px;

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminTable extends Migration
+class AddSoftDeleteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateAdminTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        //
+        Schema::table('vehicle', function (Blueprint $table) {
+            $table->softDeletes();
         });
     }
 
@@ -26,6 +26,9 @@ class CreateAdminTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin');
+        //
+        Schema::table('vehicle', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+        });
     }
 }

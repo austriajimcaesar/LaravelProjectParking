@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
@@ -13,10 +14,13 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        //
-        return view('parking.vehicle');
+        // {
+        $vehicle = Vehicle::select('*')->get();
+        $vehicle_count = $vehicle->count();
+        return view('parking.vehicle', compact('vehicle', 'vehicle_count'));
+
     }
-    
+      
     /**
      * Show the form for creating a new resource.
      *
@@ -25,6 +29,7 @@ class VehicleController extends Controller
     public function create()
     {
         //
+        return view('vehicle.create');
     }
 
     /**
@@ -35,7 +40,28 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'vModel' => 'required',
+            'vBrand' => 'required',
+            'vType' => 'required',
+            'vPlatenum' => 'required',
+            'vPrice' => 'required',
+            // 'vStatus' => 'required'
+        ]);
+        // dd($request);
+
+        $vehicle = new Vehicle();
+        $vehicle->vModel = $request->vModel;
+        $vehicle->vBrand = $request->vBrand;
+        $vehicle->vType = $request->vType;
+        $vehicle->vPlatenum = $request->vPlatenum;
+        $vehicle->vPrice = $request->vPrice;
+        // $vehicle->vStatus = $request->vStatus;
+
+        if ($vehicle->save()){
+            return redirect('/vehicle')->with('status','Sucessfully save');
+        }
     }
 
     /**
@@ -55,9 +81,10 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vehicle $vehicle)
     {
         //
+        return view('vehicle.edit', compact('vehicle'));
     }
 
     /**
@@ -67,9 +94,36 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Vehicle $vehicle)
     {
+
         //
+        // $request->validate([
+        //     'vModel' => 'required',
+        //     'vBrand' => 'required',
+        //     'vType' => 'required',
+        //     'vPlatenum' => 'required',
+        //     'vPrice' => 'required',
+        //     'vStatus' => 'required'
+        // ]);
+        
+        // $vehicle = Vehicle::find($array[0]);
+        // $vehicle->vModel = $request->vModel;
+        // $vehicle->vBrand = $request->vBrand;
+        // $vehicle->vType = $request->vType;
+        // $vehicle->vPlatenum = $request->vPlatenum;
+        // $vehicle->vPrice = $request->vPrice;
+        // $vehicle->vStatus = 1;
+        // $arr = array("done", "archive");
+        // if(in_array($cond, $arr)){
+        //     if($cond == $arr[0]) $vehicle->update(['vStatus' => 2]);
+        //     if($cond == $arr[1]) $vehicle->update(['isDeleted' => 2]);
+        // } 
+       
+        $vehicle->update(['vStatus' => 2]);
+        return redirect('/vehicle');
+
+
     }
 
     /**
@@ -78,8 +132,12 @@ class VehicleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+
+        return redirect('/vehicle');   
     }
+
+
 }

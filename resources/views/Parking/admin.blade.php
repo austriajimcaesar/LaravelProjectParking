@@ -6,18 +6,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../css/admin.css" />
+    <script type="text/javascript" src="{{ asset('css/app.js') }}"></script>
     <title>Admin</title>
 </head>
 
 <body>
 
-    <!-- <nav>
-        <div class="nav-wrapper" style="background-color:  #5a5ccf; ">
-            <ul class="col s10 m8 l3 right">
-                <li><a href="http://localhost/parking1/www/loginParking.html ">Logout</a></li>
-            </ul>
-        </div>
-    </nav> -->
     <div class="row">
         <div class="col s2 blue lighten-5">
             <ul id="slide-out" class="sidenav sidenav-fixed" style="width: 350px;background-color:  #5a5ccf; ; ">
@@ -27,70 +21,28 @@
 
                     </div>
                 </li>
-
                 <li>
                     <div class="divider"></div>
                 </li>
                 <br><br>
-                <form method="/" action="{{ route('vehicle') }}">
-                        @csrf
-                        <div class="form-group row mb-0" id="vehicle" class="card-action">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="vehicle">
-                                    {{ __('VEHICLE') }}
-                                </button><br><br>
-                            </div>
-                        </div>
-                    </form>
-                    <form method="/" action="{{ route('transaction') }}">
-                        @csrf
-                        <div class="form-group row mb-0" id="trans" class="card-action">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="trans">
-                                    {{ __('TRANSACTION') }}
-                                </button><br><br><br><br><br><br><br>
-                            </div>
-                        </div>
-                    </form><br><br><br>
-                 
-                    <form method="/" action="{{ route('login') }}">
-                        @csrf
-                        <div class="form-group row mb-0" id="out" class="card-action">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn1 red lighten-1 modal-trigger" class="btn" id="out">
-                             {{ __('LOGOUT') }}
-                                </button><br><br>
-                            </div>
-                        </div>
-                    </form> 
-               <!-- <li><form method="/" action="{{ route('vehicle') }}">        
-                    @csrf       
-                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
-                <form></li><br> -->
-                <!-- <form method="/" action="{{ route('vehicle') }}">        
-                    @csrf       
-                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('VEHICLE') }}</button>
-                <form><br><br>
-                <li><form method="/" action="{{ route('vehicle') }}">        
-                    @csrf       
-                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('TRANSACTION') }}</button>
-                <form></li><br><br><br><br><br><br><br><br><br>
-                <li> <form method="/" action="{{ route('login') }}">        
-                    @csrf       
-                    <button type="submit" class="btn1 blue lighten-1 modal-trigger" class="btn" id="parked">{{ __('LOGOUT') }}</button>
-                <form></li> -->
-                <!-- <li><a class="waves-effect " method="/"  style="color: white; ">Admin</a></li>
-                <li> <a class="waves-effect " style="color: white; " href="http://localhost/parking1/www/index.html ">Vehicles parked</a></li>
-                <li><a class="waves-effect " style="color: white; center " href=" http://localhost/parking1/www/transaction.html ">Transaction</a></li><br><br><br>
-                <br><br><br><br><br><br><br><br><br><br>
-                <li><a class="waves-effect " style="color: white; " href=" http://localhost/parking1/www/transaction.html ">Logout</a></li> -->
-
+                
+                <a href="/vehicle"><button type="button" class="btn1 blue lighten-1 modal-trigger"><span class="fa fa-user icons1"></span>VEHICLE</button></a><br><br>
+                <a href="/transaction"><button type="button" class="btn1 blue lighten-1 modal-trigger"><span class="fa fa-user icons1"></span>TRANSACTION</button></a><br><br><br><br><br><br><br><br><br><br><br>
+                
+                                    <li><a button type="button" class="btn1 red lighten-1 white-text modal-trigger" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a><form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+           
             </ul>
             <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <div class="container">
             </div>
         </div>
-
             <div class="container" >
 
 <body class="background"></body>
@@ -110,9 +62,7 @@
                                 <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" data-target="modal1">
                                     {{ __('Add Vehicle') }}
                                 </button>
-                                <button type="submit" class="btn blue lighten-1 modal-trigger" class="btn" id="parked">
-                                    {{ __('view cars') }}
-                                </button><br><br>
+                                <br><br>
                             </div>
                         </div>
                     </form>
@@ -121,36 +71,130 @@
         </div>
     </div>
 </div>
-            <div class="container">
+            {{-- Add Vehicle Modal --}}
+            <div id="modal1" class="modal white">
+                <div class="modal-content">
+    
+                    <div class="modalHeader">
+                        <p class="header">Add Vehicle</p>
+                        <a class="waves-effect waves-grey lighten-2 btn-flat modal-close"><i class="material-icons">close</i></a>
+                    </div>
+                    <div class="zontaline">
+                        
+                    </div>
+                    <div class="modalImg">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>                                        
+                                    @endforeach
+                                </ul>
+                            </div>                        
+                        @endif
+                        
+                        <div class="addProductForm">
+                            <div class="row">
+                                <form class="col s12" method="POST" action="/vehicle" enctype="multipart/form-data">
+                                    @csrf
 
-                <div id="modal1" class="modal blue lighten-5">
-                    <div class="modal-content blue lighten-5">
-                        <div class="col s12 m8 9">
-                            <label for="custId">Customer #</label>
-                            <input id="custId" type="text" disabled placeholder="Customer #" /><br>
-
-                            <label for="vModel">Vehicle Model</label>
-                            <input id="vModel" type="text" placeholder="Vehicle Model" /><br>
-
-                            <label for="vMaker">Vehicle Maker</label>
-                            <input id="vMaker" type="text" placeholder="Vehicle Maker" /><br>
-
-                            <label for="vPlatenum">Vehicle Plate number</label>
-                            <input id="vPlatenum" type="text" placeholder="Vehicle Plate number" /><br>
-
-
-                            <a class="waves-light btn center "  onclick="add_record()"><i class="material-icons Right"></i>add customer</a>
-                            
-                            <br>
-                            <br>
+                                    <div class="form-group row">
+                                       
+                                        <div class="input-field col s6">
+                                            <select type="dropdown" id="vBrand" class="form-control @error('vBrand') is-invalid @enderror" name="vBrand" value="{{ old('vBrand') }}" autofocus>
+                                                <option value=""></option>
+                                                <option value="TOYOTA">TOYOTA</option>
+                                                <option value="MITSUBISHI">MITSUBISHI</option>
+                                                <option value="HONDA">HONDA</option>
+                                                <option value="SUZUKI">SUZUKI</option>
+                                                <option value="NISSAN">NISSAN</option>
+                                                <option value="ISUZU">ISUZU</option>
+                                                <option value="HYUNDAI">HYUNDAI</option>
+                                                <option value="FORD">FORD</option>
+                                                <option value="MAZDA">ISUZU</option>
+                                                <option value="CHEVROLET">CHEVROLET</option>
+                                                <option value="KIA">KIA</option>
+                                                <option value="MG">MG</option>
+                                                <option value="FOTON">FOTON</option>
+                                                <option value="SUBARU">SUBARU</option>
+                                                <option value="JEEP">JEEP</option>
+                                                <option value="BMW">BMW</option>
+                                                <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
+                                                <option value="AUDI">AUDI</option>
+                                            </select>
+                                            <label style="font-family: 'Poppins', sans-serif;">Choose Type</label>
+                                            @error('vBrand')
+                                                <span class="invalid-feedback" role="alert"> 
+                                                    {{ $message }}
+                                                </span>                                
+                                            @enderror
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <select type="dropdown" id="vType" class="form-control @error('vType') is-invalid @enderror" name="vType" value="{{ old('vType') }}" autofocus>
+                                                <option value=""></option>
+                                                <option value="SUV">SUV</option>
+                                                <option value="TRUCK">TRUCK</option>
+                                                <option value="VAN">VAN</option>
+                                                <option value="SEDAN">SEDAN</option>
+                                                <option value="PICKUP">PICKUP</option>
+                                                <option value="MPV">MPV</option>
+                                                <option value="COUPE">COUPE</option>
+                                                <option value="CROSSOVER">CROSSOVER</option>
+                                                <option value="HATCHBACK">HATCHBACK</option>
+                                                <option value="CONVERTIBLE">CONVERTIBLE</option>
+                                                <option value="MINIVAN">MINIVAN</option>
+                                                <option value="WAGON">WAGON</option>
+                                            </select>
+                                            <label style="font-family: 'Poppins', sans-serif;">Choose Type</label>
+                                            @error('vType')
+                                                <span class="invalid-feedback" role="alert"> 
+                                                    {{ $message }}
+                                                </span>                                
+                                            @enderror
+                                        </div>
+                                        <div class="input-field col s6">
+                                            <input id="vModel" type="text" class="form-control @error('vModel') is-invalid @enderror" name="vModel" value="{{ old('vModel') }}">
+                                            <label for="vModel">Vehicle Model</label>
+                                        </div>
+                                        @error('vModel')
+                                            <span class="invalid-feedback" role="alert"> 
+                                                {{ $message }}
+                                            </span>                                
+                                        @enderror
+                                        </div>
+                                    <div class="form-group row">
+                                        <div class="input-field col s6">
+                                            <textarea id="vPlatenum" type="text" class="materialize-textarea form-control @error('vPlatenum') is-invalid @enderror" name="vPlatenum" value="{{ old('vPlatenum') }}"></textarea>
+                                            <label for="vPlatenum">Vehicle Plate Number</label>
+                                        </div>
+                                        @error('vPlatenum')
+                                            <span class="invalid-feedback" role="alert"> 
+                                                {{ $message }}
+                                            </span>                                
+                                        @enderror
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="input-field col s6">
+                                            <input id="vPrice" type="text" class="form-control @error('vPrice') is-invalid @enderror" name="vPrice" value="{{ old('vPrice') }}">
+                                            <label for="vPrice">Vehicle Price</label>
+                                        </div>
+                                        @error('vPrice')
+                                            <span class="invalid-feedback" role="alert"> 
+                                                {{ $message }}
+                                            </span>                                
+                                        @enderror
+                                    </div>
+                                    
+                                    <button type="submit" class="waves-effect btn-flat blue darken-2 white-text addproduct-btn">
+                                        {{ __('Add Customer') }}
+                                    </button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <br>
-                <br>
             </div>
-        </div>
+            {{-- End of Add Product Modal --}}
     
 
 

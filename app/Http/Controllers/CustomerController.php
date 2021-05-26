@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaction;
 use Illuminate\Http\Request;
 
-class TransactionController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class TransactionController extends Controller
     public function index()
     {
         //
-        $transaction = transaction::select('*')->get();
-        $transaction_count = $transaction->count();
-        return view('parking.transaction', compact('transaction', 'transaction_count'));
-        
+       
     }
 
     /**
@@ -28,7 +24,8 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        // 
+        return view('students.admin');
     }
 
     /**
@@ -40,6 +37,7 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         //
+       
     }
 
     /**
@@ -59,10 +57,9 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(transaction $transaction)
+    public function edit($id)
     {
         //
-        return view('transaction.edit', compact('transaction'));
     }
 
     /**
@@ -82,12 +79,9 @@ class TransactionController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */ 
-        public function destroy(Transaction $transaction)
-        {
-            $transaction->delete();
-    
-            return redirect('/transaction');   
-        }
-    
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

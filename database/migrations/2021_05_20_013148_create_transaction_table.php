@@ -14,7 +14,11 @@ class CreateTransactionTable extends Migration
     public function up()
     {
         Schema::create('transaction', function (Blueprint $table) {
-            $table->id();
+            $table->id('tId');
+            $table->integer('vId')->unsigned();
+            $table->string('vPlatenum');
+            $table->string('vDate');
+            $table->integer('vPrice');
             $table->timestamps();
         });
     }
