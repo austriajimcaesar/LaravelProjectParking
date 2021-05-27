@@ -81,7 +81,7 @@
                                             @method('PUT')
                                             @csrf
                                             <div class="remove-btn">
-                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">Done</button>
+                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">OUT</button>
                                             </div>
                                         </form>
                                         <form method="POST" action=" {{ route('vehicle.destroy', $vehicle->vId)}}">

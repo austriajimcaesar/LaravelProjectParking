@@ -15,7 +15,7 @@ class VehicleController extends Controller
     public function index()
     {
         // {
-        $vehicle = Vehicle::select('*')->get();
+        $vehicle = Vehicle::select('*')->where('vStatus','=','1')->get();
         $vehicle_count = $vehicle->count();
         return view('parking.vehicle', compact('vehicle', 'vehicle_count'));
 

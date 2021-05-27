@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicle;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,11 @@ class TransactionController extends Controller
     public function index()
     {
         //
-        $transaction = transaction::select('*')->get();
-        $transaction_count = $transaction->count();
-        return view('parking.transaction', compact('transaction', 'transaction_count'));
+        
+
+        $vehicles = Vehicle::select('*')->where('vStatus','=','2')->get();
+        
+        return view('parking.transaction', compact('vehicles'));
         
     }
 
@@ -48,9 +51,17 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($vId)
     {
-        //
+        // dd($transaction);
+        $transaction = DB::table('transaction')->join('transaction', 'transaction.vId', 'transaction.vId')->where('transaction.vId', $vId)->get();
+        $transaction = DB::table('vehicle')->join('vehicle', 'vehicle.vId', 'vehicle.tId')->where('vehicle.tId', $tId)->get();
+        
+        // // foreach($order as $key => $value) {
+        // //     dd($value->order_id);
+        // // }
+        
+         return view('transaction.modals.view', compact('transaction', 'transaction'));
     }
 
     /**

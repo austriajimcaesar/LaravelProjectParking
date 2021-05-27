@@ -26,7 +26,7 @@
                 <br><br>
              
                 <a href="/admin"><button type="button" class="btn1 blue lighten-1 modal-trigger"><span class="fa fa-user icons1"></span>ADMIN</button></a><br><br>
-                <a href="/Vehicle"><button type="button" class="btn1 blue lighten-1 modal-trigger"><span class="fa fa-user icons1"></span>VEHICLE</button></a><br><br><br><br><br><br><br><br><br><br><br>
+                <a href="/vehicle"><button type="button" class="btn1 blue lighten-1 modal-trigger"><span class="fa fa-user icons1"></span>VEHICLE</button></a><br><br><br><br><br><br><br><br><br><br><br>
                 <li><a button type="button" class="btn1 red lighten-1 modal-trigger white-text" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -52,7 +52,7 @@
             <div class="card-content black-text">
         
             <!-- Display all records in a table -->
-            <p style="color: dimgray; font-size: 20px; font-weight: 600;">Vehicles List</p>
+            <p style="color: dimgray; font-size: 20px; font-weight: 600;">Outgoing Vehicles</p>
                 <table style="margin-top: 50px;" class="striped" class="responsive-table" class="highlight">
             <!-- Start of table -->
                     <thead>
@@ -66,19 +66,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($transaction as $transaction)
+                        @foreach ($vehicles as $vehicle)
                             <tr>
-                                <td>{{ $transaction->vId }}</td>
-                                <td>{{ $transaction->vPlatenum }}</td>
-                                <td>{{ $transaction->vPrice }}</td>
+                                <td>{{ $vehicle->vId }}</td>
+                                <td>{{ $vehicle->vPlatenum }}</td>
+                                <td>{{ $vehicle->vPrice }}</td>
                                 <td>
                                     <div class="action-btn">
-                                        <a data-toggle="modal" data-target="updateModal{{$transaction->vId}}" class="waves-effect btn-flat red darken-2 white-text">{{__('Edit')}}</a>
-                                        <form method="POST" action=" {{ route('transaction.destroy', $transaction->vId)}}">
+                                        <a data-toggle="modal" data-target="updateModal{{$vehicle->vId}}" class="waves-effect btn-flat red darken-2 white-text">{{__('Edit')}}</a>
+                                        <form method="POST" action=" {{ route('vehicle.destroy', $vehicle->vId)}}">
                                             @method('DELETE')
                                             @csrf
                                             <div class="remove-btn">
-                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">Remove</button>
+                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">Done</button>
                                             </div>
                                         </form>
                                     </div>

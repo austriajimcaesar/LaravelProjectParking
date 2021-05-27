@@ -186,7 +186,7 @@
                                     </div>
                                     
                                     <button type="submit" class="waves-effect btn-flat blue darken-2 white-text addproduct-btn">
-                                        {{ __('Add Customer') }}
+                                        {{ __('Add Parking') }}
                                     </button>
                                 </form>
                             </div>
@@ -194,7 +194,7 @@
                     </div>
                 </div>
             </div>
-            {{-- End of Add Product Modal --}}
+            {{-- End of Add  Modal --}}
     
 
 
