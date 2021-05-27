@@ -122,7 +122,7 @@
                                                 <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
                                                 <option value="AUDI">AUDI</option>
                                             </select>
-                                            <label style="font-family: 'Poppins', sans-serif;">Choose Type</label>
+                                            <label style="font-family: 'Poppins', sans-serif;">Choose Brand</label>
                                             @error('vBrand')
                                                 <span class="invalid-feedback" role="alert"> 
                                                     {{ $message }}

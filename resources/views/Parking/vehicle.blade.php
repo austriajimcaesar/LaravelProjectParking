@@ -4,8 +4,12 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <link type="text/css" rel="stylesheet" href="../css/materialize.min.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="../css/vehicle.css" />
+    <script type="text/javascript" src="{{ asset('css/app.js') }}"></script>
     <title>Vehicles</title>
 </head>
 
@@ -52,8 +56,7 @@
         
             <!-- Display all records in a table -->
             <p style="color: dimgray; font-size: 20px; font-weight: 500;">Vehicles List</p>
-            <!-- <img class="center" class="img-size" src="{{url('/assets/parkingback.png')}}" /><br> -->
-                <table style="margin-top: 50px;" class="striped" class="responsive-table" class="highlight">
+                <table style="margin-top: 50px;" id="vehiclestbl" class="striped" class="responsive-table" class="highlight">
             <!-- Start of table -->
                     <thead>
                         
@@ -63,7 +66,6 @@
                             <th>Plate Number</th>
                             <th>Parking Price</th>
                             <th>Action</th>
-                            <th></th>
                         
                     </thead>
                     <tbody>
