@@ -61,8 +61,6 @@
                             <th>Vehicle ID</th>
                             <th>Plate Number</th>
                             <th>Parking Price</th>
-                            <th>Action</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,19 +68,7 @@
                             <tr>
                                 <td>{{ $vehicle->vId }}</td>
                                 <td>{{ $vehicle->vPlatenum }}</td>
-                                <td>{{ $vehicle->vPrice }}</td>
-                                <td>
-                                    <div class="action-btn">
-                                        <a data-toggle="modal" data-target="updateModal{{$vehicle->vId}}" class="waves-effect btn-flat red darken-2 white-text">{{__('Edit')}}</a>
-                                        <form method="POST" action=" {{ route('vehicle.destroy', $vehicle->vId)}}">
-                                            @method('DELETE')
-                                            @csrf
-                                            <div class="remove-btn">
-                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">Done</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </td>    
+                                <td>{{ $vehicle->vPrice }}</td>   
                             </tr>
                         @endforeach
                     </tbody>

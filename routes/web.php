@@ -33,6 +33,7 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->na
 //Route::get('/vehicle', [App\Http\Controllers\VehicleController::class, 'index'])->name('vehicle');
 Route::get('/transaction', [App\Http\Controllers\TransactionController::class, 'index'])->name('transaction');
 
+
 //Route::resource('/admin', 'App\Http\Controllers\AdminController');
 Route::resource('/vehicle', 'App\Http\Controllers\VehicleController');
 

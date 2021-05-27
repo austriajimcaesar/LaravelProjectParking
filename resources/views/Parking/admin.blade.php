@@ -153,7 +153,7 @@
                                             @enderror
                                         </div>
                                         <div class="input-field col s6">
-                                            <input id="vModel" type="text" class="form-control @error('vModel') is-invalid @enderror" name="vModel" value="{{ old('vModel') }}">
+                                            <input id="vModel" type="text" class="form-control @error('vModel') is-invalid @enderror" name="vModel" value="{{ old('vModel') }}"required>
                                             <label for="vModel">Vehicle Model</label>
                                         </div>
                                         @error('vModel')
@@ -175,7 +175,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="input-field col s6">
-                                            <input id="vPrice" type="text" class="form-control @error('vPrice') is-invalid @enderror" name="vPrice" value="{{ old('vPrice') }}">
+                                            <input id="vPrice" type="text" class="form-control @error('vPrice') is-invalid @enderror" name="vPrice" value="{{ old('vPrice') }}" required>
                                             <label for="vPrice">Vehicle Price</label>
                                         </div>
                                         @error('vPrice')

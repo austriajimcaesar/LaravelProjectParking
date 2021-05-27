@@ -56,8 +56,7 @@
                 <table style="margin-top: 50px;" class="striped" class="responsive-table" class="highlight">
             <!-- Start of table -->
                     <thead>
-                        <tr>
-                        <tr>
+                        
                             <th>Vehicle ID</th>
                             <th>Vehicle Model</th>
                             <th>Vehicle Brand</th>
@@ -65,7 +64,7 @@
                             <th>Parking Price</th>
                             <th>Action</th>
                             <th></th>
-                        </tr>
+                        
                     </thead>
                     <tbody>
                         @foreach ($vehicle as $vehicle)
@@ -76,18 +75,18 @@
                                 <td>{{ $vehicle->vPlatenum }}</td>
                                 <td>{{ $vehicle->vPrice }}</td>
                                 <td>
-                                    <div class="action-btn">
+                                    <div class="action-btn" style="display: flex">
                                         <form method="POST" action=" {{ route('vehicle.update', $vehicle->vId)}}">
                                             @method('PUT')
                                             @csrf
                                             <div class="remove-btn">
-                                                <button type="submit" class="waves-effect btn-flat red darken-2 white-text">OUT</button>
+                                                <button type="submit" class="waves-effect btn-flat blue darken-2 white-text">OUT</button>
                                             </div>
                                         </form>
                                         <form method="POST" action=" {{ route('vehicle.destroy', $vehicle->vId)}}">
                                             @method('DELETE')
                                             @csrf
-                                            <div class="remove-btn">
+                                           <div class="remove-btn">
                                                 <button type="submit" class="waves-effect btn-flat red darken-2 white-text">Remove</button>
                                             </div>
                                         </form>
