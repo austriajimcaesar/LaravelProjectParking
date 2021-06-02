@@ -111,16 +111,6 @@
                                                 <option value="ISUZU">ISUZU</option>
                                                 <option value="HYUNDAI">HYUNDAI</option>
                                                 <option value="FORD">FORD</option>
-                                                <option value="MAZDA">ISUZU</option>
-                                                <option value="CHEVROLET">CHEVROLET</option>
-                                                <option value="KIA">KIA</option>
-                                                <option value="MG">MG</option>
-                                                <option value="FOTON">FOTON</option>
-                                                <option value="SUBARU">SUBARU</option>
-                                                <option value="JEEP">JEEP</option>
-                                                <option value="BMW">BMW</option>
-                                                <option value="MERCEDES-BENZ">MERCEDES-BENZ</option>
-                                                <option value="AUDI">AUDI</option>
                                             </select>
                                             <label style="font-family: 'Poppins', sans-serif;">Choose Brand</label>
                                             @error('vBrand')
@@ -133,14 +123,10 @@
                                             <select type="dropdown" id="vType" class="form-control @error('vType') is-invalid @enderror" name="vType" value="{{ old('vType') }}" autofocus>
                                                 <option value=""></option>
                                                 <option value="SUV">SUV</option>
-                                                <option value="TRUCK">TRUCK</option>
                                                 <option value="VAN">VAN</option>
                                                 <option value="SEDAN">SEDAN</option>
                                                 <option value="PICKUP">PICKUP</option>
-                                                <option value="MPV">MPV</option>
                                                 <option value="COUPE">COUPE</option>
-                                                <option value="CROSSOVER">CROSSOVER</option>
-                                                <option value="HATCHBACK">HATCHBACK</option>
                                                 <option value="CONVERTIBLE">CONVERTIBLE</option>
                                                 <option value="MINIVAN">MINIVAN</option>
                                                 <option value="WAGON">WAGON</option>
@@ -175,8 +161,9 @@
                                     </div>
                                     <div class="form-group row">
                                         <div class="input-field col s6">
-                                            <input id="vPrice" type="text" class="form-control @error('vPrice') is-invalid @enderror" name="vPrice" value="{{ old('vPrice') }}" required>
-                                            <label for="vPrice">Vehicle Price</label>
+                                    <P>Parking Price</P>
+                                            <input id="vPrice" type="text" class="form-control @error('vPrice') is-invalid @enderror" name="vPrice" value="{{ old('vPrice') }}" required readonly>
+                                            
                                         </div>
                                         @error('vPrice')
                                             <span class="invalid-feedback" role="alert"> 
@@ -213,6 +200,38 @@
     <script type="text/javascript" src="../js/materialize.min.js"></script>
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/scripts.js">
+    </script>
+    @push('scripts')
+    <script>
+        $('#vType').change(function () {
+    var myValue = $(this).val();
+console.log("123");
+
+    if (myValue === 'SUV') {
+        $("#vPrice").val("110");
+    }
+    else if (myValue === 'VAN') {
+        $("#vPrice").val("150");
+    }
+    else if (myValue === 'SEDAN') {
+        $("#vPrice").val("100");
+    }
+    else if (myValue === 'PICKUP') {
+        $("#vPrice").val("120");
+    }
+    else if (myValue === 'COUPE') {
+        $("#vPrice").val("60");
+    }
+    else if (myValue === 'CONVERTIBLE') {
+        $("#vPrice").val("50");
+    }
+    else if (myValue === 'MINIVAN') {
+        $("#vPrice").val("80");
+    }
+    else if (myValue === 'WAGON') {
+        $("#vPrice").val("90");
+    }
+});
     </script>
 </body>
 

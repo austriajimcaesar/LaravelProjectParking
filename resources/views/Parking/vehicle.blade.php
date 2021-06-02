@@ -65,6 +65,7 @@
                             <th>Vehicle Brand</th>
                             <th>Plate Number</th>
                             <th>Parking Price</th>
+                            <th>Time In</th>
                             <th>Action</th>
                         
                     </thead>
@@ -76,6 +77,7 @@
                                 <td>{{ $vehicle->vBrand }}</td>
                                 <td>{{ $vehicle->vPlatenum }}</td>
                                 <td>{{ $vehicle->vPrice }}</td>
+                                <td>{{ $vehicle->created_at }}</td>
                                 <td>
                                     <div class="action-btn" style="display: flex">
                                         <form method="POST" action=" {{ route('vehicle.update', $vehicle->vId)}}">
